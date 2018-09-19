@@ -1,6 +1,11 @@
 import { Component } from "@angular/core";
+import { Cart } from "../model/cart.model";
 
 @Component({
-    template: `<div><h3 class="bg-info p-1">购物车详情组件</h3></div>`
+  templateUrl: "cartdetail.component.html"
 })
-export class CartDetailComponent { }
+export class CartDetailComponent {
+
+  constructor(public cart: Cart) { }
+
+}

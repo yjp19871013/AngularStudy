@@ -1,0 +1,51 @@
+<div class="navbar bg-primary">
+  <a class="navbar-brand">运动品商店</a>
+</div>
+
+<div class="m-1">
+  <h2 class="text-center">你的购物车</h2>
+  <table class="table table-bordered table-striped p-1">
+    <thead>
+      <tr>
+        <th>数量</th>
+        <th>产品</th>
+        <th class="text-right">价格</th>
+        <th class="text-right">总计</th>
+        <th class="text-right">操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="cart.lines.length == 0">
+        你的购物车好空
+      </tr>
+      <tr *ngFor="let line of cart.lines">
+        <td>
+          <input type="number" class="form-control"
+                    style="width:5em" [value]="line.quantity"
+                    (change)="cart.updateQuantity(line.product, $event.target.value)" />
+        </td>
+        <td>{{ line.product.name }}</td>
+        <td class="text-right">{{ line.product.price | currency:"￥" }}</td>
+        <td class="text-right">{{ (line.lineTotal) | currency:"￥" }}</td>
+        <td class="text-center">
+          <button class="btn btn-danger"
+            (click)="cart.removeLine(line.product.id)">删除</button>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3" class="text-right">总数：</td>
+        <td class="text-right">
+          {{ cart.cartPrice | currency:"￥" }}
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+<div class="text-center">
+  <button class="btn btn-primary mr-1" routerLink="/store">继续购买</button>
+  <button class="btn btn-secondary" routerLink="/checkout"
+        [disabled]="cart.lines.length == 0">结账</button>
+</div>

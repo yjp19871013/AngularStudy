@@ -1,5 +1,5 @@
 <div>
-    <small>
+  <small>
         你的购物车：
         <span *ngIf="cart.itemCount > 0">
             {{ cart.itemCount }} 个商品
@@ -9,7 +9,8 @@
             (空)
         </span>
     </small>
-    <button class="btn-sm bg-transparent border-0">
+  <button class="btn-sm bg-transparent border-0"
+    [hidden]="cart.itemCount == 0" routerLink="/cart">
         <i class="fa fa-shopping-cart"></i>
     </button>
 </div>

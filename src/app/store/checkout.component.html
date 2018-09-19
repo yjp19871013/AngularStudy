@@ -1,0 +1,41 @@
+<div class="navbar bg-primary">
+  <a class="navbar-brand">运动品商店</a>
+</div>
+
+<div *ngIf="orderSent" class="m-1 text-center">
+    <h2>感谢！</h2>
+    <p>感谢您的订单，</p>
+    <p>我们会尽快将商品邮寄给您</p>
+    <button class="btn btn-primary" routerLink="/store">
+        返回商店
+    </button>
+</div>
+
+<form *ngIf="!orderSent" #form="ngForm" novalidate (ngSubmit)="submitOrder(form)" class="m-1">
+    <div class="form-group">
+        <label>姓名</label>
+        <input class="form-control" #name="ngModel" name="name" [ngModel]="order.name" required />
+        <span *ngIf="submitted && name.invalid" class="text-danger">
+            请输入姓名
+        </span>
+    </div>
+    <div class="form-group">
+        <label>地址</label>
+        <input class="form-control" #name="ngModel" name="name" [ngModel]="order.name" required />
+        <span *ngIf="submitted && name.invalid" class="text-danger">
+            请输入姓名
+        </span>
+    </div>
+    <div class="form-group">
+    </div>
+    <div class="form-group">
+    </div>
+    <div class="form-group">
+    </div>
+    <div class="form-group">
+    </div>
+    <div class="text-center">
+        <button class="btn btn-secondary mr-1" routerLink="/cart">返回</button>
+        <button class="btn btn-primary" routerLink="/submit">完成订单</button>
+    </div>
+</form>
