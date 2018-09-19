@@ -1,0 +1,15 @@
+<div>
+    <small>
+        你的购物车：
+        <span *ngIf="cart.itemCount > 0">
+            {{ cart.itemCount }} 个商品
+            {{ cart.cartPrice | currency:"￥" }}
+        </span>
+        <span *ngIf="cart.itemCount == 0">
+            (空)
+        </span>
+    </small>
+    <button class="btn-sm bg-transparent border-0">
+        <i class="fa fa-shopping-cart"></i>
+    </button>
+</div>
