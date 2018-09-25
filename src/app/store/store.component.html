@@ -13,6 +13,8 @@
               class="col-6 btn-lg btn-outline-primary d-block m-2"
               [class.active]="cat == selectedCategory"
               (click)="changeCategory(cat)">{{ cat }}</button>
+      <button class="col-6 btn btn-lg btn-outline-primary d-lock m-2"
+              routerLink="/admin">管理员</button>
     </div>
   </div>
 
@@ -26,8 +28,8 @@
       </h4>
       <div class="card-body">
         <div class="card-text p-1 d-flex justify-content-between">
-            {{ product.description }}
-            <button class="btn-sm btn-success" (click)="addProductToCart(product)">
+          {{ product.description }}
+          <button class="btn-sm btn-success" (click)="addProductToCart(product)">
                 加入购物车
             </button>
         </div>

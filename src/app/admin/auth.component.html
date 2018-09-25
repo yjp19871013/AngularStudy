@@ -1,0 +1,25 @@
+<div class="bg-info p-1 text-center">
+    <h3>运动品商店管理</h3>
+</div>
+<div class="bg-danger mt-1 p-1 text-center"
+        *ngIf="errorMessage != null">
+    {{errorMessage}}
+</div>
+<div class="p-1">
+    <form novalidate #form="ngForm" (ngSubmit)="authenticate(form)">
+        <div class="form-group">
+            <label>姓名</label>
+            <input class="form-control" name="username"
+                [(ngModel)]="username" required />
+        </div>
+        <div class="form-group">
+            <label>密码</label>
+            <input class="form-control" type="password" name="password"
+                [(ngModel)]="password" required />
+        </div>
+        <div class="text-center">
+            <button class="btn btn-secondary mr-1" routerLink="/">返回</button>
+            <button class="btn btn-primary" type="submit">登录</button>
+        </div>
+    </form>
+</div>
