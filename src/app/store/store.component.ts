@@ -10,8 +10,8 @@ import { Cart } from "../model/cart.model";
 })
 export class StoreComponent {
 
-  private selectedCategory = null;
-  private productsPerPage = 4;
+  public selectedCategory = null;
+  public productsPerPage = 4;
   private selectedPage = 1;
 
   constructor(private repository: ProductRepository,
